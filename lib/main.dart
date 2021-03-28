@@ -29,17 +29,17 @@ class MyApp extends StatelessWidget {
             textTheme: ThemeData.light().textTheme.copyWith(
                 headline6: TextStyle(fontFamily: 'OpenSans', fontSize: 20))),
       ),
-      home: MyHomePage(),
+      home: _MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class _MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<_MyHomePage> with WidgetsBindingObserver {
   final List<Transaction> _userTransactions = [];
 
   List<Transaction> get _recentTransactions {
@@ -53,6 +53,26 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   bool _showChart = false;
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    super.initState();
+  }
+
+//initializes the listener to be retriggered.
+
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    print(state);
+  }
+
+//listens in on the app Life Cycle.
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+  //We have to always clear our observer/Listeners with the dispose()
+  //method to avoid memory Leaks.
 
   void _addNewTransaction(
       String txTitle, double txAmount, DateTime chosenDate) {
