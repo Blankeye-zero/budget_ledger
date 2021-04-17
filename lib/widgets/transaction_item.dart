@@ -18,7 +18,7 @@ class TransactionItem extends StatefulWidget {
 }
 
 class _TransactionItemState extends State<TransactionItem> {
-  Color _bg_color;
+  Color bgcolor;
 
   void initState() {
     const availableColors = [
@@ -29,7 +29,7 @@ class _TransactionItemState extends State<TransactionItem> {
       Colors.black
     ];
 
-    _bg_color = availableColors[Random().nextInt(5)];
+    bgcolor = availableColors[Random().nextInt(5)];
     super.initState();
     //We dont have to call setstate to record these changes as build runs after the init state() anyway.
   }
@@ -41,7 +41,7 @@ class _TransactionItemState extends State<TransactionItem> {
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: _bg_color,
+          backgroundColor: bgcolor,
           radius: 30,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
@@ -56,10 +56,13 @@ class _TransactionItemState extends State<TransactionItem> {
           DateFormat.yMMMd().format(widget.transactions.date),
         ),
         trailing: MediaQuery.of(context).size.width > 360
-            ? FlatButton.icon(
+            ? TextButton.icon(
                 icon: Icon(Icons.delete),
                 label: Text('Delete'),
-                textColor: Theme.of(context).errorColor,
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(Theme.of(context).errorColor),
+                ),
                 onPressed: () => widget.deleteTx(widget.transactions.id),
               )
             : IconButton(
