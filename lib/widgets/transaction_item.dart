@@ -62,6 +62,7 @@ class _TransactionItemState extends State<TransactionItem> {
                 style: ButtonStyle(
                   backgroundColor:
                       MaterialStateProperty.all(Theme.of(context).errorColor),
+                  foregroundColor: MaterialStateProperty.all(Colors.white),
                 ),
                 onPressed: () => widget.deleteTx(widget.transactions.id),
               )
