@@ -1,7 +1,5 @@
 # budget_ledger
 
-A new Flutter project.
-
 ## Getting Started
 
 This is  a mini project of mine for further understanding the features of flutter.
@@ -14,7 +12,7 @@ Budget Ledger presents the statistics of your purchases over the past week throu
 to keep track of your expenses.
 
 
-If you want to Learn Flutter:
+Resources for learning Flutter:
 
 A few resources to get you started if this is your first Flutter project:
 
