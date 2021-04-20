@@ -194,7 +194,7 @@ class _MyHomePageState extends State<_MyHomePage> with WidgetsBindingObserver {
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            if (isLandscape)
+            if (isLandscape) //using spread operator to outsource a list from list.
               ..._buildLandscapeContent(mediaQuery, appBar, txListWidget),
             if (!isLandscape)
               ..._buildPortraitContent(mediaQuery, appBar, txListWidget),
