@@ -1,8 +1,5 @@
 # budget_ledger
-
-## Getting Started
-
-This is  a mini project of mine for further understanding the features of flutter.
+A mini project of mine for further understanding the features of flutter.
 
 Budget Ledger is a cross-Platform Mobile App that helps us keep track of our Expenditures.
 
